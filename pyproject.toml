@@ -6,8 +6,9 @@ authors = ["Halimon-Alexandr <154706310+Halimon-Alexandr@users.noreply.github.co
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.12"
+python = "^3.10"
 fastapi = "^0.111.0"
+pytz = "^2024.1"
 
 
 [build-system]

@@ -1,10 +1,26 @@
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from typing import Optional
 from datetime import datetime, timedelta
 import pytz
 from schedule import workday, weekend, bus_arrival_times, special_holidays, holiday
 
 app = FastAPI()
+
+# Додавання підтримки CORS
+origins = [
+    "http://localhost",
+    "http://localhost:8000",
+    "http://54.226.102.206",
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 kiev_timezone = pytz.timezone("Europe/Kiev")
 
